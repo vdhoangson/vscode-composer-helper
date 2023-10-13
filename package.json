@@ -1,11 +1,11 @@
 {
   "name": "vs-composer-helper",
-  "displayName": "Composer Helper - VS Code",
+  "displayName": "Composer Helper",
   "description": "Intellisense for composer.json, PHP dependency manager.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "vdhoangson",
   "publisher": "vdhoangson",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE FILE",
   "icon": "composer-helper.png",
   "homepage": "https://github.com/vdhoangson/vscode-composer-helper",
   "repository": {
@@ -29,7 +29,31 @@
     "vscode": "^1.82.0"
   },
   "activationEvents": [
-    "onLanguage:json"
+    "onLanguage:json",
+    "onCommand:vsComposerHelper.About",
+    "onCommand:vsComposerHelper.Archive",
+    "onCommand:vsComposerHelper.ClearCache",
+    "onCommand:vsComposerHelper.Depends",
+    "onCommand:vsComposerHelper.Diagnose",
+    "onCommand:vsComposerHelper.DumpAutoload",
+    "onCommand:vsComposerHelper.Fund",
+    "onCommand:vsComposerHelper.Init",
+    "onCommand:vsComposerHelper.Install",
+    "onCommand:vsComposerHelper.Licenses",
+    "onCommand:vsComposerHelper.Outdated",
+    "onCommand:vsComposerHelper.Prohibits",
+    "onCommand:vsComposerHelper.Remove",
+    "onCommand:vsComposerHelper.Require",
+    "onCommand:vsComposerHelper.RunScript",
+    "onCommand:vsComposerHelper.SelfUpdate",
+    "onCommand:vsComposerHelper.Show",
+    "onCommand:vsComposerHelper.Status",
+    "onCommand:vsComposerHelper.Suggests",
+    "onCommand:vsComposerHelper.Update",
+    "onCommand:vsComposerHelper.Validate",
+    "onCommand:vsComposerHelper.Version",
+    "onCommand:vsComposerHelper.Why",
+    "onCommand:vsComposerHelper.WhyNot"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -37,6 +61,30 @@
       {
         "title": "Composer Helper",
         "properties": {
+          "vsComposerHelper.executablePath": {
+            "scope": "resource",
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": "/usr/bin/composer",
+            "description": "Path to the composer executable."
+          },
+          "composer.workingPath": {
+            "scope": "resource",
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null,
+            "description": "Path to the composer.json file."
+          },
+          "vsComposerHelper.runInTerminal": {
+            "scope": "window",
+            "type": "boolean",
+            "default": true,
+            "description": "Run composer commands in a terminal, otherwise shows the output in the output panel."
+          },
           "vsComposerHepler.packagistCache": {
             "type": "integer",
             "default": 1200,
@@ -44,6 +92,128 @@
             "description": "Specifies how long requests to packagist are cached [seconds]"
           }
         }
+      }
+    ],
+    "commands": [
+      {
+        "command": "vsComposerHelper.About",
+        "title": "About",
+        "category": "Composer Helper"
+      },
+      {
+        "command": "vsComposerHelper.Archive",
+        "title": "Archive",
+        "category": "Composer Helper"
+      },
+      {
+        "command": "vsComposerHelper.ClearCache",
+        "title": "Clear Cache",
+        "category": "Composer Helper"
+      },
+      {
+        "command": "vsComposerHelper.Depends",
+        "title": "Depends",
+        "category": "Composer Helper"
+      },
+      {
+        "command": "vsComposerHelper.Diagnose",
+        "title": "Diagnose",
+        "category": "Composer Helper"
+      },
+      {
+        "command": "vsComposerHelper.DumpAutoload",
+        "title": "Dump Autoloader",
+        "category": "Composer Helper"
+      },
+      {
+        "command": "vsComposerHelper.Fund",
+        "title": "Fund",
+        "category": "Composer Helper"
+      },
+      {
+        "command": "vsComposerHelper.Init",
+        "title": "Init",
+        "category": "Composer Helper"
+      },
+      {
+        "command": "vsComposerHelper.Install",
+        "title": "Install",
+        "category": "Composer Helper"
+      },
+      {
+        "command": "vsComposerHelper.Licenses",
+        "title": "Licenses",
+        "category": "Composer Helper"
+      },
+      {
+        "command": "vsComposerHelper.Outdated",
+        "title": "Outdated",
+        "category": "Composer Helper"
+      },
+      {
+        "command": "vsComposerHelper.Prohibits",
+        "title": "Prohibits",
+        "category": "Composer Helper"
+      },
+      {
+        "command": "vsComposerHelper.Remove",
+        "title": "Remove",
+        "category": "Composer Helper"
+      },
+      {
+        "command": "vsComposerHelper.Require",
+        "title": "Require",
+        "category": "Composer Helper"
+      },
+      {
+        "command": "vsComposerHelper.RunScript",
+        "title": "Run Script",
+        "category": "Composer Helper"
+      },
+      {
+        "command": "vsComposerHelper.SelfUpdate",
+        "title": "Self Update",
+        "category": "Composer Helper"
+      },
+      {
+        "command": "vsComposerHelper.Show",
+        "title": "Show",
+        "category": "Composer Helper"
+      },
+      {
+        "command": "vsComposerHelper.Status",
+        "title": "Status",
+        "category": "Composer Helper"
+      },
+      {
+        "command": "vsComposerHelper.Suggests",
+        "title": "Suggests",
+        "category": "Composer Helper"
+      },
+      {
+        "command": "vsComposerHelper.Update",
+        "title": "Update",
+        "category": "Composer Helper"
+      },
+      {
+        "command": "vsComposerHelper.Validate",
+        "title": "Validate",
+        "category": "Composer Helper"
+      },
+      {
+        "command": "vsComposerHelper.Version",
+        "title": "Version",
+        "category": "Composer Helper"
+      },
+      {
+        "command": "vsComposerHelper.Why",
+        "title": "Why",
+        "category": "Composer Helper"
+      },
+      {
+        "command": "vsComposerHelper.WhyNot",
+        "title": "WhyNot",
+        "category": "Composer Helper"
       }
     ]
   },
@@ -70,6 +240,7 @@
   },
   "dependencies": {
     "axios": "^1.5.1",
+    "run-in-terminal": "^0.0.3",
     "vscode-cache": "^0.3.0"
   }
 }

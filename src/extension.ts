@@ -3,10 +3,14 @@ import { packageNamesCIP } from "./autocomplete/packageNames";
 import { packageVersionsCIP } from "./autocomplete/packageVersions";
 import { decorate, clearDecorations } from "./decorator/decorator";
 import { packageHoverProvider } from "./hover/hover";
+import { ComposerExtension } from "./composer/composer";
 const global = require("./util/globals");
 
 export function activate(context: vscode.ExtensionContext) {
   console.log("composer-intellisense activated");
+
+  const composer = new ComposerExtension();
+  context.subscriptions.push(composer);
 
   global.extensionContext = context;
 

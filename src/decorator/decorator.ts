@@ -7,7 +7,7 @@ export async function decorate(editor: vscode.TextEditor) {
   const NA = "n/a";
 
   let sourceCode = editor.document.getText();
-  console.debug(sourceCode);
+
   try {
     let json = JSON.parse(sourceCode);
 
